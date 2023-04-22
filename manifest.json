@@ -1,8 +1,7 @@
-
 {
-  "name": "Chrome Extension with PHP Form",
+  "name": "IP Changer Extension",
   "version": "1.0",
-  "description": "A Chrome extension that allows users to submit information from a PHP form to an online database.",
+  "description": "A Chrome extension that allows users to change their IP address and location, spoof their user agent, and send fake header requests.",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
