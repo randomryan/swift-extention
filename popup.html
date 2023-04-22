@@ -1,16 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chrome Extension with PHP Form</title>
+  <title>IP Changer Extension</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 20px;
+    }
+    
+    h1 {
+      margin-top: 0;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    select, input[type=text] {
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: inherit;
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    input[type=checkbox] {
+      margin-right: 5px;
+    }
+    
+    button[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    button[type=submit]:hover {
+      background-color: #3E8E41;
+    }
+  </style>
   <script src="popup.js"></script>
 </head>
 <body>
+  <h1>IP Changer Extension</h1>
   <form id="myForm">
-    First name:<br>
-    <input type="text" name="firstname"><br>
-    Last name:<br>
-    <input type="text" name="lastname"><br><br>
-    <button type="submit">Submit</button>
+    <label for="ipAddress">IP Address:</label>
+    <select name="ipAddress" id="ipAddress">
+      <option value="">-- Select --</option>
+      <option value="1.2.3.4">1.2.3.4</option>
+      <option value="5.6.7.8">5.6.7.8</option>
+      <!-- Add more options or remove these -->
+    </select>
+
+    <br><br>
+
+    <label for="location">Location:</label>
+    <select name="location" id="location">
+      <option value="">-- Select --</option>
+      <option value="New York, USA">New York, USA</option>
+      <option value="London, UK">London, UK</option>
+      <!-- Add more options or remove these -->
+    </select>
+
+    <br><br>
+
+    <label for="latitude">Latitude:</label>
+    <input type="text" name="latitude" id="latitude" placeholder="Enter latitude (if known)">
+  
+    <label for="longitude">Longitude:</label>
+    <input type="text" name="longitude" id="longitude" placeholder="Enter longitude (if known)">
+
+    <br><br>
+
+    <label for="userAgent">User Agent:</label>
+    <select name="userAgent" id="userAgent">
+      <option value="">-- Select --</option>
+      <option value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299">Microsoft Edge</option>
+      <option value="Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0">Mozilla Firefox</option>
+      <!-- Add more options or remove these -->
+    </select>
+
+    <br><br>
+
+    <label for="headerRequests">Header Requests:</label>
+    <input type="checkbox" name="headers[]" value="Accept-Language"> Accept-Language
+    <input type="checkbox" name="headers[]" value="User-Agent"> User-Agent
+    <input type="checkbox" name="headers[]" value="Referer"> Referer
+    <input type="checkbox" name="headers[]" value="X-Forwarded-For"> X-Forwarded-For
+
+    <br><br>
+
+    <button type="submit">Apply Changes</button>
   </form> 
 </body>
 </html>
